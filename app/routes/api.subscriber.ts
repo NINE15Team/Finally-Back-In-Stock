@@ -28,6 +28,7 @@ export const action: ActionFunction = async ({ request }) => {
         let productInfo = await findByProductAndVariantId(requstBody.productId, requstBody.variantId);
         let subscribeItem: CustomerSubscriptionDTO = {
             customerEmail: requstBody.email,
+            tel: requstBody.tel ?? "",
             isNotified: false,
             isActive: false,
             productInfoId: productInfo?.id!,

@@ -2,7 +2,7 @@
 
 client_id = "4be5fc9d1ae991fced4096c5f04e5665"
 name = "finally-bis-hadi"
-application_url = "https://romance-base-fax-impressed.trycloudflare.com"
+application_url = "https://forward-tied-contests-alerts.trycloudflare.com"
 embedded = true
 
 [build]
@@ -12,13 +12,13 @@ include_config_on_deploy = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products"
+scopes = "read_customers,write_customers,write_inventory,write_orders,write_products"
 
 [auth]
 redirect_urls = [
-  "https://romance-base-fax-impressed.trycloudflare.com/auth/callback",
-  "https://romance-base-fax-impressed.trycloudflare.com/auth/shopify/callback",
-  "https://romance-base-fax-impressed.trycloudflare.com/api/auth/callback"
+  "https://forward-tied-contests-alerts.trycloudflare.com/auth/callback",
+  "https://forward-tied-contests-alerts.trycloudflare.com/auth/shopify/callback",
+  "https://forward-tied-contests-alerts.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

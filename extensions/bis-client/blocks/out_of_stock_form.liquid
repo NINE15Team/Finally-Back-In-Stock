@@ -30,6 +30,7 @@
     <label for="email">Email</label>
     <div class="wrapper">
       <input type="text" name="email" placeholder="{{ blockSettings.input_text_placeholder }}">
+      <input type="tel" name="telephone" placeholder="03331234567" pattern="[0-9]{11}" maxlength="11" minlength="11"  title="Eleven digits code"/>    
       <button style="background: {{ blockSettings.button_background }};color:{{ blockSettings.button_text_color }}">
         {{ blockSettings.button_text }}
       </button>

@@ -60,6 +60,7 @@ model CustomerSubscription {
   id            Int         @id @default(autoincrement())
   productInfoId Int         @map("product_info_id")
   customerEmail String      @default("Default Email") @map("customer_email")
+  customerTel   String      @default("") @map("customer_tel")
   status        Boolean     @default(false) @map("status")
   isNotified    Boolean     @default(false) @map("is_notified")
   isSubscribed  Boolean     @default(true) @map("is_subscribed")

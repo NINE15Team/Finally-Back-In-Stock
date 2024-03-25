@@ -41,19 +41,31 @@ class BackInStock extends HTMLElement {
         alert('Invalid Email');
         return false;
       }
+      const API_URL = "https://forward-tied-contests-alerts.trycloudflare.com";
+      const body = {
+        shopifyURL: this.shopifyURL,
+        productHandle: this.productHandle,
+        productId: this.productId,
+        productTitle: this.productTitle,
+        variantId: variantId,
+        imageURL: this.productInstance.featured_image,
+        price: this.getVariant(variantId).price,
+        variantTitle: this.getVariant(variantId).title,
+        email: formData.get("email"),
+      }
+
+      const telephone = formData.get('telephone')
+      if(telephone) {
+        if(!isNaN(telephone) && telephone.length == 11) {
+          body.tel = telephone
+        } else {
+          alert('Invalid Phone number');
+          return false;
+        }
+      }
       const response = await fetch(`${API_URL}/api/subscriber`, {
         method: "POST",
-        body: JSON.stringify({
-          shopifyURL: this.shopifyURL,
-          productHandle: this.productHandle,
-          productId: this.productId,
-          productTitle: this.productTitle,
-          variantId: variantId,
-          imageURL: this.productInstance.featured_image,
-          price: this.getVariant(variantId).price,
-          variantTitle: this.getVariant(variantId).title,
-          email: formData.get("email")
-        }),
+        body: JSON.stringify(body),
       }).then(r => r.json());
 
       if (response?.status) {
