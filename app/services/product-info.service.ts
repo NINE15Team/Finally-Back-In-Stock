@@ -26,10 +26,16 @@ const findAll = async (param: Partial<ProductInfoDTO>) => {
     });
 };
 
-const findSubscribedProducts = async (param: Partial<ProductInfoDTO>) => {
+const findSubscribedProducts = async (
+  param: Partial<ProductInfoDTO>,
+  page: number = 2,
+  pageSize: number = 10
+) => {
     BigInt.prototype.toJSON = function () {
         return this.toString();
     };
+    const offset = (page - 1) * pageSize;
+    const limit = pageSize;
     let d = await prisma.productInfo.findMany({
         where: {
             store: {
@@ -44,7 +50,9 @@ const findSubscribedProducts = async (param: Partial<ProductInfoDTO>) => {
         include: {
             customerSubscription: {
             }
-        }
+        },
+        skip: offset,
+        take: limit
     });
     console.log(d);
     return d;
